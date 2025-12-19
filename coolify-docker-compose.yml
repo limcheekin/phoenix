@@ -1,0 +1,10 @@
+services:
+  phoenix:
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+    ports:
+      - 6006:6006
+      - 4317:4317
+    environment:
+      - 'PHOENIX_SQL_DATABASE_URL=${PHOENIX_SQL_DATABASE_URL:-postgresql://postgres:postgres@db:5432/postgres}'
